@@ -48,7 +48,7 @@ Gợi ý làm bài:
   + Chỉ sử dụng thư viện string.h của C để xử lý chuỗi.
 
 Nhiệm vụ:
-- Tạo file index.txt
-- Tạo file metadata.txt
-- Tạo hàm để rút trích văn bản, từ khóa (lấy ra những từ quan trọng) gồm tìm kiếm văn bản, loại bỏ stopword
-- Nghiên cứu cách lưu trữ tên văn bản trong index.txt (skip list?). Mục đích tối ưu cập nhập việc thêm, xóa.
+- Tạo file index.txt - done
+- Tạo file metadata.txt - not done - thiếu phần đọc tiếng việt.
+- Tạo hàm để rút trích văn bản, từ khóa (lấy ra những từ quan trọng) gồm tìm kiếm văn bản, loại bỏ stopword - not done
+- Nghiên cứu cách lưu trữ tên văn bản trong index.txt (skip list?). Mục đích tối ưu cập nhập việc thêm, xóa. - not done
