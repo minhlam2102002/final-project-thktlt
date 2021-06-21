@@ -21,9 +21,15 @@
     <ClCompile Include="InOut.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="stringFunction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="InOut.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stringFunction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

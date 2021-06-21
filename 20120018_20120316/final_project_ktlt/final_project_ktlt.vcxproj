@@ -142,9 +142,11 @@
   <ItemGroup>
     <ClCompile Include="InOut.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="stringFunction.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="InOut.h" />
+    <ClInclude Include="stringFunction.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="vietnamese-stopwords.txt" />
