@@ -13,55 +13,85 @@
 #include <filesystem>
 #include <sstream>
 #include <regex>
-#include "InOut.h"
+#include <chrono>
+#include <thread>
+//#include "InOut.h"
 
 using namespace std;
 namespace fs = std::filesystem;
 
-vector<string> getTopic(string path) {
-	vector<string> topic;
+string extractFileName(string path) {
+	string res;
+	for (int i = path.size() - 1; path[i] != '\\'; i--) {
+		res += path[i];
+	}
+	reverse(res.begin(), res.end());
+	return res;
+}
+void getTopic(string path, vector<string> &topic) {
 	for (auto& file : fs::directory_iterator(path)) {
 		fs::path p = file.path();
 		topic.push_back(extractFileName(p.string()));
 	}
-	return topic;
 }
-void createIndexFile(string path) {
-	ofstream out(path + "\\index.txt");
-	for (auto& file : fs::directory_iterator(path)) {
-		fs::path p = file.path();
-		if (p.string() != "index.txt") {
-			out << extractFileName(p.string()) << endl;
+void createIndexFile(string root, string trainPath, vector<string> topic) {
+	ofstream out(root + "\\index.txt");
+	out << topic.size() << endl;
+	for (string topicName : topic) {
+		out << topicName << endl;
+		vector<string> files;
+		for (auto& file : fs::directory_iterator(trainPath + "\\" + topicName)) {
+			fs::path p = file.path();
+			files.push_back(extractFileName(p.string()));
 		}
+		out << files.size() << endl;
+		for (string cur : files) {
+			out << cur << endl;
+		}
+
 	}
 	out.close();
 }
-void createMetadata(std::wstring path, std::wstring topic) {
-	std::wstring data;
-	string topicPath = path + "\\Train\\new train\\" + topicName;
-	ifstream in(topicPath + "\\index.txt");
-	vector<string> filename;
-	while (getline(in, content)) {
-		filename.push_back()
+string extractKeyWord(string path) {
+	//su dung tien xu ly :vvvv
+	string keyWord;
+	return keyWord;
+}
+void createMetadata(string root, string trainPath) {
+	ifstream in(root + "\\index.txt");
+	ofstream out(root + "\\metadata.txt");
+	int numTopics, numFiles;
+	in >> numTopics;
+	in.ignore();
+	out << numTopics << endl;
+	string curTopic, curFile;
+	while (numTopics--) {
+		getline(in, curTopic);
+		out << curTopic << endl;
+		in >> numFiles;
+		out << numFiles << endl;
+		in.ignore();
+		while (numFiles--) {
+			getline(in, curFile);
+			out << curFile << endl;
+			out << extractKeyWord(trainPath + "\\" + curTopic + "\\" + curFile);
+		}
 	}
+	in.close();
+	out.close();
 }
 
 int main()
 {
-	InOut();
+	//InOut();
 	string root = "D:\\college\\KTLT\\final_project_ktlt\\20120018_20120316\\final_project_ktlt\\source";
 	string trainPath = root + "\\Train\\new train";
 	std::wstring wroot(root.begin(), root.end());
-	vector<string> topic = getTopic(trainPath);
-	for (string topicName : topic) {
-		string curTopicPath = trainPath + "\\" + topicName;
-		createIndexFile(curTopicPath);
-	}
-	for (string topicName : topic) {
-		std::wstring wtopic(topicName.begin(), topicName.end());
-		createMetadata(wroot, wtopic);
-	}
+	vector<string> topic;
+	getTopic(trainPath, topic);
+	createIndexFile(root, trainPath, topic);
+	createMetadata(root, trainPath);
 	std::wstring finalPath = L"userinfo-c++.txt";
 	std::wstring outPath = L"Testing.out";
-	PrintWord(outPath, ReadWord(finalPath));
+	//PrintWord(outPath, ReadWord(finalPath));
 }

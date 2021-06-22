@@ -16,14 +16,7 @@ void InOut() {
 	_setmode(_fileno(stdout), _O_WTEXT); //needed for output
 	_setmode(_fileno(stdin), _O_WTEXT); //needed for input
 }
-string extractFileName(string path) {
-	string res;
-	for (int i = path.size() - 1; path[i] != '\\'; i--) {
-		res += path[i];
-	}
-	reverse(res.begin(), res.end());
-	return res;
-}
+
 std::wstring ReadWord(std::wstring path) {
 	std::wstring line, res;
 	std::locale loc(std::locale(), new std::codecvt_utf8<wchar_t>);  // UTF-8
