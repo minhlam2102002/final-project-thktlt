@@ -51,5 +51,6 @@ Nhiệm vụ:
 - Tạo file index.txt - done
 - Tạo file metadata.txt - not done 
 - Cách đọc file bằng tiếng việt - done - At: https://github.com/tntxtnt/VietnameseIO/blob/master/VietnameseIO/umain.cpp
+- Xóa dấu tiếng việt http://tientrieu.net/4185-bo-dau-tieng-viet-trong-cpp.html
 - Tạo hàm để rút trích văn bản, từ khóa (lấy ra những từ quan trọng) gồm tìm kiếm văn bản, loại bỏ stopword - not done
 - Nghiên cứu cách lưu trữ tên văn bản trong index.txt (skip list?). Mục đích tối ưu cập nhập việc thêm, xóa. - not done
