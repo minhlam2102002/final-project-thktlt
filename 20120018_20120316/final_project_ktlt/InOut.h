@@ -1,4 +1,5 @@
 #pragma once
+
 void InOut();
-std::wstring ReadWord(std::wstring path);
-void PrintWord(std::wstring path, std::wstring content);
+std::wstring ReadFile(std::string path);
+void PrintFile(std::string path, std::wstring content);

@@ -17,7 +17,7 @@ void InOut() {
 	_setmode(_fileno(stdin), _O_WTEXT); //needed for input
 }
 
-std::wstring ReadWord(std::wstring path) {
+std::wstring ReadFile(string path) {
 	std::wstring line, res;
 	std::locale loc(std::locale(), new std::codecvt_utf8<wchar_t>);  // UTF-8
 	std::wifstream fin(path);
@@ -29,7 +29,7 @@ std::wstring ReadWord(std::wstring path) {
 	fin.close();
 	return res;
 }
-void PrintWord(std::wstring path, std::wstring content) {
+void PrintFile(string path, std::wstring content) {
 	std::locale loc(std::locale(), new std::codecvt_utf8<wchar_t>);  // UTF-8
 	std::wofstream fout(path);
 	fout.imbue(loc);

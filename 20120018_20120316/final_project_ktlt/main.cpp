@@ -13,9 +13,8 @@
 #include <filesystem>
 #include <sstream>
 #include <regex>
-#include <chrono>
-#include <thread>
-//#include "InOut.h"
+#include "InOut.h"
+#include "stringFunction.h"
 
 using namespace std;
 namespace fs = std::filesystem;
@@ -52,12 +51,23 @@ void createIndexFile(string root, string trainPath, vector<string> topic) {
 	}
 	out.close();
 }
-string extractKeyWord(string path) {
+string extractKeyWord(string path, vector<string> stopWords) { // exctract file at path
 	//su dung tien xu ly :vvvv
 	string keyWord;
+	string content;
+	XoaDau(content, ReadFile(path));
+	lowerCase(content);
+	fixWord(content);
+	deleteStopWord(content, stopWords);
+	for (int i = 0; i < 5; i++) {
+		keyWord += content[i];
+	}
 	return keyWord;
 }
 void createMetadata(string root, string trainPath) {
+	vector<string> stopWords;
+	createStopWord(stopWords, "vietnamese-stopwords.txt");
+	exit(0);
 	ifstream in(root + "\\index.txt");
 	ofstream out(root + "\\metadata.txt");
 	int numTopics, numFiles;
@@ -74,7 +84,7 @@ void createMetadata(string root, string trainPath) {
 		while (numFiles--) {
 			getline(in, curFile);
 			out << curFile << endl;
-			out << extractKeyWord(trainPath + "\\" + curTopic + "\\" + curFile);
+			out << extractKeyWord(trainPath + "\\" + curTopic + "\\" + curFile, stopWords);
 		}
 	}
 	in.close();
@@ -83,15 +93,19 @@ void createMetadata(string root, string trainPath) {
 
 int main()
 {
-	//InOut();
+	std::wstring tmp = L"abcd\nef";
+	string t(tmp.begin(), tmp.end());
+	cout << t << endl;
+	InOut();
+	std::wstring w_content = ReadFile("testing.txt");
+	string content;
+	XoaDau(content, w_content);
+	cout << content << endl;
+	exit(0);
 	string root = "D:\\college\\KTLT\\final_project_ktlt\\20120018_20120316\\final_project_ktlt\\source";
 	string trainPath = root + "\\Train\\new train";
-	std::wstring wroot(root.begin(), root.end());
 	vector<string> topic;
 	getTopic(trainPath, topic);
 	createIndexFile(root, trainPath, topic);
 	createMetadata(root, trainPath);
-	std::wstring finalPath = L"userinfo-c++.txt";
-	std::wstring outPath = L"Testing.out";
-	//PrintWord(outPath, ReadWord(finalPath));
 }
