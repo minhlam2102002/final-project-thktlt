@@ -31,12 +31,13 @@ void fixWord(string& str) {
 			str[i] = ' ';
 		}
 	}
-	for (int i = 0; i < str.size() - 1; i++) {
-		if (str[i] == ' ' && str[i + 1] == ' ') {
-			str.erase(i, 1);
-			i--;
+	string fixed;
+	for(int i = 0; i < str.size(); i++){
+		if (fixed.size() == 0 || fixed.back() != ' ') {
+			fixed += str[i];
 		}
 	}
+	str = fixed;
 }
 void extractWord(string content, vector<string>& words) {
 	stringstream ss(content);
@@ -72,8 +73,7 @@ void deleteStopWord(string& content, vector<string> stopWords) {
 		Z_algo(content, sWord);
 	}
 }
-
-void XoaDau(string &txt, std::wstring w_txt) {
+string XoaDau(std::wstring w_txt) {
 	w_txt = std::regex_replace(w_txt, std::wregex(L"à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ|/g"), L"a");
 	w_txt = std::regex_replace(w_txt, std::wregex(L"À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ|/g"), L"A");
 	w_txt = std::regex_replace(w_txt, std::wregex(L"è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ|/g"), L"e");
@@ -88,27 +88,21 @@ void XoaDau(string &txt, std::wstring w_txt) {
 	w_txt = std::regex_replace(w_txt, std::wregex(L"Ỳ|Ý|Ỵ|Ỷ|Ỹ|/g"), L"Y");
 	w_txt = std::regex_replace(w_txt, std::wregex(L"đ"), L"d");
 	w_txt = std::regex_replace(w_txt, std::wregex(L"Đ"), L"D");
-	string tmp(w_txt.begin(), w_txt.end());
-	txt = tmp;
+	string txt(w_txt.begin(), w_txt.end());
+	return txt;
 }
-void createStopWord(vector<string>& stopWords, string path) {
-	std::wstring w_content = ReadFile(path);
-	string content;
-	XoaDau(content, w_content);
-	cout << content << endl;
-	exit(0);
+void createStopWord(vector<string>& stopWords) {
+	string content = XoaDau(ReadFileUTF8("vietnamese-stopwords.txt"));
 	char* tmp;
 	tmp = new char[content.size() + 1];
 	strcpy(tmp, content.c_str());
 	char* token = strtok(tmp, "\n");
 	string word(token);
 	stopWords.push_back(word);
-	cout << stopWords.back() << endl; 
 	while (token != NULL)
 	{
 		word = token;
 		stopWords.push_back(word);
-		printf("%s\n", token);
 		token = strtok(NULL, "\n");
 	}
 	delete[] tmp;

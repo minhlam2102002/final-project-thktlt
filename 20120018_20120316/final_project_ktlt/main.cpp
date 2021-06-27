@@ -51,23 +51,24 @@ void createIndexFile(string root, string trainPath, vector<string> topic) {
 	}
 	out.close();
 }
-string extractKeyWord(string path, vector<string> stopWords) { // exctract file at path
+
+string extractKeyWord(string path, vector<string>& stopWords) { // exctract file at path
 	//su dung tien xu ly :vvvv
 	string keyWord;
-	string content;
-	XoaDau(content, ReadFile(path));
+	string content = XoaDau(ReadFileUTF16(path));
 	lowerCase(content);
 	fixWord(content);
 	deleteStopWord(content, stopWords);
-	for (int i = 0; i < 5; i++) {
+	//exit(0);
+	for (int i = 0; i < 1; i++) {
 		keyWord += content[i];
 	}
 	return keyWord;
 }
+
 void createMetadata(string root, string trainPath) {
 	vector<string> stopWords;
-	createStopWord(stopWords, "vietnamese-stopwords.txt");
-	exit(0);
+	createStopWord(stopWords);
 	ifstream in(root + "\\index.txt");
 	ofstream out(root + "\\metadata.txt");
 	int numTopics, numFiles;
@@ -85,23 +86,14 @@ void createMetadata(string root, string trainPath) {
 			getline(in, curFile);
 			out << curFile << endl;
 			out << extractKeyWord(trainPath + "\\" + curTopic + "\\" + curFile, stopWords);
+			return;
 		}
 	}
 	in.close();
 	out.close();
 }
-
-int main()
-{
-	std::wstring tmp = L"abcd\nef";
-	string t(tmp.begin(), tmp.end());
-	cout << t << endl;
-	InOut();
-	std::wstring w_content = ReadFile("testing.txt");
-	string content;
-	XoaDau(content, w_content);
-	cout << content << endl;
-	exit(0);
+int main(){
+	//InOut();
 	string root = "D:\\college\\KTLT\\final_project_ktlt\\20120018_20120316\\final_project_ktlt\\source";
 	string trainPath = root + "\\Train\\new train";
 	vector<string> topic;
