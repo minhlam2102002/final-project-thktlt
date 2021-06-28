@@ -13,10 +13,22 @@
 #include <filesystem>
 #include <sstream>
 #include <regex>
+#include <algorithm>
 #include "stringFunction.h"
 #include "InOut.h"
 //#include "InOut.h"
 using namespace std;
+
+wstring idVowels = L"aAeEiIoOuUyYdD";
+wstring vowels[14] = {
+L"àáạảãâầấậẩẫăằắặẳẵ", L"ÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴ",
+L"èéẹẻẽêềếệểễ", L"ÈÉẸẺẼÊỀẾỆỂỄ",
+L"ìíịỉĩ", L"ÌÍỊỈĨ",
+L"òóọỏõôồốộổỗơờớợởỡ", L"ÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠ",
+L"ùúụủũưừứựửữ", L"ÙÚỤỦŨƯỪỨỰỬỮ",
+L"ỳýỵỷỹ", L"ỲÝỴỶỸ",
+L"đ", L"Đ"};
+
 
 void lowerCase(string& str) {
 	for (int i = 0; i < str.size(); i++) {
@@ -50,12 +62,12 @@ void deleteStopWord(string &content, vector<string>& stopWords) {
 		int to = upper_bound(stopWords.begin(), stopWords.end(), momWords[i]) - stopWords.begin();
 		bool isDif = false;
 		for(int j = fr; j < to; j++){
+			extractWord(stopWords[j], childWords);
 			if (i + childWords.size() > momWords.size()) {
 				continue;
 			}
-			extractWord(stopWords[j], childWords);
-			for (int j = 0; j < childWords.size(); j++) {
-				if (momWords[i + j] != childWords[j]) {
+			for (int t = 0; t < childWords.size(); t++) {
+				if (momWords[i + t] != childWords[t]) {
 					isDif = true;
 					break;
 				}
@@ -69,30 +81,13 @@ void deleteStopWord(string &content, vector<string>& stopWords) {
 			content += momWords[i] + ' ';
 		}
 	}
-
 }
 string XoaDau(std::wstring &w_txt) { // XoaDau + LowerCase
-	wstring id = L"aAeEiIoOuUyYdD";
-	wstring vowels[14];
-	vowels[0] = L"àáạảãâầấậẩẫăằắặẳẵ";
-	vowels[1] = L"ÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴ";
-	vowels[2] = L"èéẹẻẽêềếệểễ";
-	vowels[3] = L"ÈÉẸẺẼÊỀẾỆỂỄ";
-	vowels[4] = L"ìíịỉĩ";
-	vowels[5] = L"ÌÍỊỈĨ";
-	vowels[6] = L"òóọỏõôồốộổỗơờớợởỡ";
-	vowels[7] = L"ÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠ";
-	vowels[8] = L"ùúụủũưừứựửữ";
-	vowels[9] = L"ÙÚỤỦŨƯỪỨỰỬỮ";
-	vowels[10] = L"ỳýỵỷỹ";
-	vowels[11] = L"ỲÝỴỶỸ";
-	vowels[12] = L"đ";
-	vowels[13] = L"Đ";
 	for (auto &c : w_txt) {
 		for (int i = 0; i < 14; i++) {
 			for (auto v : vowels[i]) {
 				if (c == v) {
-					c = id[i];
+					c = idVowels[i];
 				}
 			}
 		}
@@ -118,33 +113,39 @@ void createStopWord(vector<string>& stopWords) {
 	delete[] tmp;
 	sort(stopWords.begin(), stopWords.end());
 }
-int countAppearance(string &mom, string &child) {
-	string S = child + "*" + mom;
-	int n = S.size();
-	vector<int> Z(n);
-	int L = 0, R = 0;
-	Z[0] = n;
-	for (int i = 1; i < n; i++) {
-		if (i > R){
-			L = R = i;
-			while (R < n && S[R] == S[R - L]) R++;
-			Z[i] = R - L; R--;
+void countAppearance(vector<string> &words, vector<string>& grams, vector<int>& rate, int type) { // count appear child in mom = res
+	string token;
+	for (int i = 0; i < words.size() - type; i++) {
+		for (int j = i; j <= i + type; j++) {
+			token += words[j] + ' ';
 		}
-		else{
-			int k = i - L;
-			if (Z[k] < R - i + 1) Z[i] = Z[k];
-			else{
-				L = i;
-				while (R < n && S[R] == S[R - L]) R++;
-				Z[i] = R - L; R--;
+		token.pop_back();
+		grams.push_back(token);
+	}
+	vector<string> gramToken;
+	sort(grams.begin(), grams.end());
+	grams.resize(unique(grams.begin(), grams.end()) - grams.begin());
+	rate.assign(grams.size(), 0);
+	for (int i = 0; i < words.size(); i++) {
+		int fr = lower_bound(grams.begin(), grams.end(), words[i]) - grams.begin();
+		int to = upper_bound(grams.begin(), grams.end(), words[i]) - grams.begin();
+		bool isSame = true;
+		for (int j = fr; j < to; j++) {
+			extractWord(grams[j], gramToken);
+			if (i + gramToken.size() > words.size()) {
+				continue;
+			}
+			for (int t = 0; t < gramToken.size(); t++) {
+				if (words[i + t] != gramToken[t]) {
+					isSame = false;
+					break;
+				}
+			}
+			if (isSame == true) {
+				i += gramToken.size() - 1;
+				rate[j] ++;
+				break;
 			}
 		}
 	}
-	int cnt = 0;
-	for (int i = child.size(); i < n; i++) {
-		if (Z[i] == child.size()) {
-			cnt++;
-		}
-	}
-	return cnt;
 }

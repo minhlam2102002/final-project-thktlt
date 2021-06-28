@@ -72,14 +72,15 @@ void extractKeyWord(string path, vector<string>& stopWords, string &keyWords) { 
 		cout << "deleteStopWord took " << time_span.count() << " milliseconds.";
 		cout << endl << endl;
 	}
-	vector<string> words;
+	vector<string> gramWords[3], words;
 	extractWord(content, words);
-	vector<int> rate(words.size());
-	for (int i = 0; i < words.size(); i++) {
-		rate[i] = countAppearance(content, words[i]);
-	}
-	for (int i = 0; i < words.size(); i++) {
-		keyWords += words[i] + ' ' + to_string(rate[i]) + '\n';
+	vector<int> gramRate[3];
+	for (int i = 0; i < 3; i++) {
+		countAppearance(words, gramWords[i], gramRate[i], i);
+		for (int j = 0; j < gramWords[i].size(); i++) {
+			keyWords += gramWords[i][j] + ' ' + to_string(gramRate[i][j]) + '\n';
+		}
+		return;
 	}
 }
 
