@@ -48,3 +48,8 @@ void PrintFileUTF8(string path, std::wstring content) {
 	fout << content;
 	fout.close();
 }
+void PrintFile(string path, string content) {
+	ofstream fout(path);
+	fout << content;
+	fout.close();
+}

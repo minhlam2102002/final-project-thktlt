@@ -27,72 +27,82 @@ void fixWord(string& str) {
 	for (int i = 0; i < str.size(); i++) {
 		if (!((str[i] >= 'a' && str[i] <= 'z') ||
 			(str[i] >= 'A' && str[i] <= 'Z') ||
-			(str[i] >= '0' && str[i] <= '9'))) {
+			(str[i] >= '0' && str[i] <= '9') ||
+			str[i] == '\n')) {
 			str[i] = ' ';
 		}
 	}
-	string fixed;
-	for(int i = 0; i < str.size(); i++){
-		if (fixed.size() == 0 || fixed.back() != ' ') {
-			fixed += str[i];
-		}
-	}
-	str = fixed;
 }
-void extractWord(string content, vector<string>& words) {
+void extractWord(string &content, vector<string>& words) {
+	words.clear();
 	stringstream ss(content);
 	string word;
 	while (ss >> word) {
 		words.push_back(word);
 	}
 }
-void Z_algo(string& mom, string child) { // delete chil in string mom 
-	string s = child + '*' + mom;
-	int child_sz = child.size();
-	int n = s.size();
-	vector<int> z(n);
-	int l = 0, r = 0;
-	for (int i = 1; i < n; i++) {
-		if (z[i - l] < r - i + 1) z[i] = z[i - l];
-		else {
-			r = max(r, i);
-			while (s[r - i] == s[r]) r += 1;
-			z[i] = r - i;
-			r -= 1;
-			l = i;
+void deleteStopWord(string &content, vector<string>& stopWords) {
+	vector<string> childWords, momWords;
+	extractWord(content, momWords);
+	content = "";
+	for (int i = 0; i < momWords.size(); i++) {
+		int fr = lower_bound(stopWords.begin(), stopWords.end(), momWords[i]) - stopWords.begin();
+		int to = upper_bound(stopWords.begin(), stopWords.end(), momWords[i]) - stopWords.begin();
+		bool isDif = false;
+		for(int j = fr; j < to; j++){
+			if (i + childWords.size() > momWords.size()) {
+				continue;
+			}
+			extractWord(stopWords[j], childWords);
+			for (int j = 0; j < childWords.size(); j++) {
+				if (momWords[i + j] != childWords[j]) {
+					isDif = true;
+					break;
+				}
+			}
+			if (isDif == false) {
+				i += childWords.size() - 1;
+				break;
+			}
+		}
+		if (isDif == true || fr == to) {
+			content += momWords[i] + ' ';
 		}
 	}
-	for (int i = child_sz; i < n; i++) {
-		if (z[i] == child_sz) {
-			mom.erase(i - child_sz - 1, child_sz + 1);
+
+}
+string XoaDau(std::wstring &w_txt) { // XoaDau + LowerCase
+	wstring id = L"aAeEiIoOuUyYdD";
+	wstring vowels[14];
+	vowels[0] = L"àáạảãâầấậẩẫăằắặẳẵ";
+	vowels[1] = L"ÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴ";
+	vowels[2] = L"èéẹẻẽêềếệểễ";
+	vowels[3] = L"ÈÉẸẺẼÊỀẾỆỂỄ";
+	vowels[4] = L"ìíịỉĩ";
+	vowels[5] = L"ÌÍỊỈĨ";
+	vowels[6] = L"òóọỏõôồốộổỗơờớợởỡ";
+	vowels[7] = L"ÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠ";
+	vowels[8] = L"ùúụủũưừứựửữ";
+	vowels[9] = L"ÙÚỤỦŨƯỪỨỰỬỮ";
+	vowels[10] = L"ỳýỵỷỹ";
+	vowels[11] = L"ỲÝỴỶỸ";
+	vowels[12] = L"đ";
+	vowels[13] = L"Đ";
+	for (auto &c : w_txt) {
+		for (int i = 0; i < 14; i++) {
+			for (auto v : vowels[i]) {
+				if (c == v) {
+					c = id[i];
+				}
+			}
 		}
 	}
-}
-void deleteStopWord(string& content, vector<string> stopWords) {
-	for (string sWord : stopWords) {
-		Z_algo(content, sWord);
-	}
-}
-string XoaDau(std::wstring w_txt) {
-	w_txt = std::regex_replace(w_txt, std::wregex(L"à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ|/g"), L"a");
-	w_txt = std::regex_replace(w_txt, std::wregex(L"À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ|/g"), L"A");
-	w_txt = std::regex_replace(w_txt, std::wregex(L"è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ|/g"), L"e");
-	w_txt = std::regex_replace(w_txt, std::wregex(L"È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ|/g"), L"E");
-	w_txt = std::regex_replace(w_txt, std::wregex(L"ì|í|ị|ỉ|ĩ|/g"), L"i");
-	w_txt = std::regex_replace(w_txt, std::wregex(L"Ì|Í|Ị|Ỉ|Ĩ|/g"), L"I");
-	w_txt = std::regex_replace(w_txt, std::wregex(L"ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ|/g"), L"o");
-	w_txt = std::regex_replace(w_txt, std::wregex(L"Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ|/g"), L"O");
-	w_txt = std::regex_replace(w_txt, std::wregex(L"ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ|/g"), L"u");
-	w_txt = std::regex_replace(w_txt, std::wregex(L"Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ|/g"), L"U");
-	w_txt = std::regex_replace(w_txt, std::wregex(L"ỳ|ý|ỵ|ỷ|ỹ|/g"), L"y");
-	w_txt = std::regex_replace(w_txt, std::wregex(L"Ỳ|Ý|Ỵ|Ỷ|Ỹ|/g"), L"Y");
-	w_txt = std::regex_replace(w_txt, std::wregex(L"đ"), L"d");
-	w_txt = std::regex_replace(w_txt, std::wregex(L"Đ"), L"D");
 	string txt(w_txt.begin(), w_txt.end());
 	return txt;
 }
 void createStopWord(vector<string>& stopWords) {
-	string content = XoaDau(ReadFileUTF8("vietnamese-stopwords.txt"));
+	wstring w_content = ReadFileUTF8("vietnamese-stopwords.txt");
+	string content = XoaDau(w_content);
 	char* tmp;
 	tmp = new char[content.size() + 1];
 	strcpy(tmp, content.c_str());
@@ -106,4 +116,35 @@ void createStopWord(vector<string>& stopWords) {
 		token = strtok(NULL, "\n");
 	}
 	delete[] tmp;
+	sort(stopWords.begin(), stopWords.end());
+}
+int countAppearance(string &mom, string &child) {
+	string S = child + "*" + mom;
+	int n = S.size();
+	vector<int> Z(n);
+	int L = 0, R = 0;
+	Z[0] = n;
+	for (int i = 1; i < n; i++) {
+		if (i > R){
+			L = R = i;
+			while (R < n && S[R] == S[R - L]) R++;
+			Z[i] = R - L; R--;
+		}
+		else{
+			int k = i - L;
+			if (Z[k] < R - i + 1) Z[i] = Z[k];
+			else{
+				L = i;
+				while (R < n && S[R] == S[R - L]) R++;
+				Z[i] = R - L; R--;
+			}
+		}
+	}
+	int cnt = 0;
+	for (int i = child.size(); i < n; i++) {
+		if (Z[i] == child.size()) {
+			cnt++;
+		}
+	}
+	return cnt;
 }

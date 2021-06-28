@@ -3,4 +3,4 @@
 void InOut();
 std::wstring ReadFileUTF16(std::string path);
 std::wstring ReadFileUTF8(std::string path);
-void PrintFile(std::string path, std::wstring content);
+void PrintFileUTF8(std::string path, std::wstring content);

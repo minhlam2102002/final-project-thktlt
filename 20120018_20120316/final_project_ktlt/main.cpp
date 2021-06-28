@@ -16,8 +16,14 @@
 #include "InOut.h"
 #include "stringFunction.h"
 
+#include <ctime>
+#include <ratio>
+#include <chrono>
+using namespace std::chrono;
+
 using namespace std;
 namespace fs = std::filesystem;
+bool checktime = true;
 
 string extractFileName(string path) {
 	string res;
@@ -33,7 +39,7 @@ void getTopic(string path, vector<string> &topic) {
 		topic.push_back(extractFileName(p.string()));
 	}
 }
-void createIndexFile(string root, string trainPath, vector<string> topic) {
+void createIndexFile(string root, string trainPath, vector<string> &topic) {
 	ofstream out(root + "\\index.txt");
 	out << topic.size() << endl;
 	for (string topicName : topic) {
@@ -52,18 +58,29 @@ void createIndexFile(string root, string trainPath, vector<string> topic) {
 	out.close();
 }
 
-string extractKeyWord(string path, vector<string>& stopWords) { // exctract file at path
+void extractKeyWord(string path, vector<string>& stopWords, string &keyWords) { // exctract file at path
 	//su dung tien xu ly :vvvv
-	string keyWord;
-	string content = XoaDau(ReadFileUTF16(path));
+	wstring w_content = ReadFileUTF16(path);
+	string content = XoaDau(w_content);
 	lowerCase(content);
 	fixWord(content);
+	high_resolution_clock::time_point t1 = high_resolution_clock::now();
 	deleteStopWord(content, stopWords);
-	//exit(0);
-	for (int i = 0; i < 1; i++) {
-		keyWord += content[i];
+	high_resolution_clock::time_point t2 = high_resolution_clock::now();
+	duration<double, std::milli> time_span = t2 - t1;
+	if (checktime == true) {
+		cout << "deleteStopWord took " << time_span.count() << " milliseconds.";
+		cout << endl << endl;
 	}
-	return keyWord;
+	vector<string> words;
+	extractWord(content, words);
+	vector<int> rate(words.size());
+	for (int i = 0; i < words.size(); i++) {
+		rate[i] = countAppearance(content, words[i]);
+	}
+	for (int i = 0; i < words.size(); i++) {
+		keyWords += words[i] + ' ' + to_string(rate[i]) + '\n';
+	}
 }
 
 void createMetadata(string root, string trainPath) {
@@ -77,27 +94,51 @@ void createMetadata(string root, string trainPath) {
 	out << numTopics << endl;
 	string curTopic, curFile;
 	while (numTopics--) {
+		high_resolution_clock::time_point tt1 = high_resolution_clock::now();
 		getline(in, curTopic);
+		cout << "Reading " << curTopic << endl;
 		out << curTopic << endl;
 		in >> numFiles;
 		out << numFiles << endl;
 		in.ignore();
 		while (numFiles--) {
+			high_resolution_clock::time_point t1 = high_resolution_clock::now();
 			getline(in, curFile);
+			cout << curFile << endl;
 			out << curFile << endl;
-			out << extractKeyWord(trainPath + "\\" + curTopic + "\\" + curFile, stopWords);
-			return;
+			string keyWords;
+			extractKeyWord(trainPath + "\\" + curTopic + "\\" + curFile, stopWords, keyWords);
+			out << keyWords;
+			high_resolution_clock::time_point t2 = high_resolution_clock::now();
+			duration<double, std::milli> time_span = t2 - t1;
+			if (checktime == true) {
+				cout << "Process File took " << time_span.count() << " milliseconds.";
+				cout << endl << endl;
+			}
+			return; // run 1 file
+		}
+		high_resolution_clock::time_point tt2 = high_resolution_clock::now();
+		duration<double, std::milli> time_span = tt2 - tt1;
+		if (checktime == true) {
+			cout << "Process Topic took " << time_span.count() << " milliseconds.";
+			cout << endl << endl;
 		}
 	}
 	in.close();
 	out.close();
 }
 int main(){
-	//InOut();
+	high_resolution_clock::time_point Begin = high_resolution_clock::now();
 	string root = "D:\\college\\KTLT\\final_project_ktlt\\20120018_20120316\\final_project_ktlt\\source";
 	string trainPath = root + "\\Train\\new train";
 	vector<string> topic;
 	getTopic(trainPath, topic);
 	createIndexFile(root, trainPath, topic);
 	createMetadata(root, trainPath);
+	high_resolution_clock::time_point End = high_resolution_clock::now();
+	duration<double, std::milli> time_span = End - Begin;
+	if (checktime == true) {
+		cout << "All Process took " << time_span.count() << " milliseconds.";
+		cout << endl << endl;
+	}
 }
