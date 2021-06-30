@@ -61,8 +61,12 @@ void deleteStopWord(string &content, vector<string>& stopWords) {
 		int fr = lower_bound(stopWords.begin(), stopWords.end(), momWords[i]) - stopWords.begin();
 		int to = upper_bound(stopWords.begin(), stopWords.end(), momWords[i]) - stopWords.begin();
 		bool isDif = false;
-		for(int j = fr; j < to; j++){
+		for(int j = fr; j < stopWords.size(); j++){
+			isDif = false;
 			extractWord(stopWords[j], childWords);
+			if (stopWords[j] != childWords[0]) {
+				break;
+			}
 			if (i + childWords.size() > momWords.size()) {
 				continue;
 			}
@@ -114,8 +118,8 @@ void createStopWord(vector<string>& stopWords) {
 	sort(stopWords.begin(), stopWords.end());
 }
 void countAppearance(vector<string> &words, vector<string>& grams, vector<int>& rate, int type) { // count appear child in mom = res
-	string token;
 	for (int i = 0; i < words.size() - type; i++) {
+		string token;
 		for (int j = i; j <= i + type; j++) {
 			token += words[j] + ' ';
 		}
@@ -128,10 +132,12 @@ void countAppearance(vector<string> &words, vector<string>& grams, vector<int>& 
 	rate.assign(grams.size(), 0);
 	for (int i = 0; i < words.size(); i++) {
 		int fr = lower_bound(grams.begin(), grams.end(), words[i]) - grams.begin();
-		int to = upper_bound(grams.begin(), grams.end(), words[i]) - grams.begin();
-		bool isSame = true;
-		for (int j = fr; j < to; j++) {
+		for (int j = fr; j < grams.size(); j++) {
+			bool isSame = true;
 			extractWord(grams[j], gramToken);
+			if (words[i] != gramToken[0]) {
+				break;
+			}
 			if (i + gramToken.size() > words.size()) {
 				continue;
 			}
@@ -142,9 +148,7 @@ void countAppearance(vector<string> &words, vector<string>& grams, vector<int>& 
 				}
 			}
 			if (isSame == true) {
-				i += gramToken.size() - 1;
-				rate[j] ++;
-				break;
+				rate[j]++;
 			}
 		}
 	}

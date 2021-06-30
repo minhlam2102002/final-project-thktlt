@@ -2,4 +2,117 @@
 Am nhac
 900
 AN_TN_ (878).txt
+10 1
+20 1
+2006 1
+4 2
+am 1
+chuong 1
+dien 1
+gia 1
+giang 1
+giot 1
+ha 1
+hcm 1
+hen 1
+hien 1
+hoang 2
+huong 1
+khuc 1
+lac 1
+le 1
 liveshow 1
+luu 1
+mau 1
+mien 1
+ngoc 1
+nguyen 1
+nhac 1
+phuong 1
+sac 1
+suong 1
+tien 1
+tp 1
+trinh 1
+uoc 2
+vuong 1
+vy 1
+wishband 1
+yeu 1
+10 4 1
+20 10 1
+2006 lac 1
+4 2006 1
+4 dien 1
+am nhac 1
+chuong trinh 1
+dien 20 1
+gia chuong 1
+giang vuong 1
+giot suong 1
+ha phuong 1
+hcm gia 1
+hen uoc 1
+hien khuc 1
+hoang le 1
+huong giang 1
+khuc uoc 1
+lac nguyen 1
+le vy 1
+liveshow sac 1
+luu huong 1
+mau am 1
+mien giot 1
+ngoc ha 1
+nguyen tp 1
+nhac 4 1
+phuong luu 1
+sac mau 1
+suong tien 1
+tien hen 1
+tp hcm 1
+trinh ngoc 1
+uoc hoang 1
+uoc yeu 1
+vuong hoang 1
+vy wishband 1
+wishband hien 1
+yeu mien 1
+10 4 2006 1
+20 10 4 1
+2006 lac nguyen 1
+4 2006 lac 1
+4 dien 20 1
+am nhac 4 1
+chuong trinh ngoc 1
+dien 20 10 1
+gia chuong trinh 1
+giang vuong hoang 1
+giot suong tien 1
+ha phuong luu 1
+hcm gia chuong 1
+hen uoc hoang 1
+hien khuc uoc 1
+hoang le vy 1
+huong giang vuong 1
+khuc uoc yeu 1
+lac nguyen tp 1
+le vy wishband 1
+liveshow sac mau 1
+luu huong giang 1
+mau am nhac 1
+mien giot suong 1
+ngoc ha phuong 1
+nguyen tp hcm 1
+nhac 4 dien 1
+phuong luu huong 1
+sac mau am 1
+suong tien hen 1
+tien hen uoc 1
+tp hcm gia 1
+trinh ngoc ha 1
+uoc yeu mien 1
+vuong hoang le 1
+vy wishband hien 1
+wishband hien khuc 1
+yeu mien giot 1

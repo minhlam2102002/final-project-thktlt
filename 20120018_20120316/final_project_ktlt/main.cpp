@@ -72,15 +72,20 @@ void extractKeyWord(string path, vector<string>& stopWords, string &keyWords) { 
 		cout << "deleteStopWord took " << time_span.count() << " milliseconds.";
 		cout << endl << endl;
 	}
+	t1 = high_resolution_clock::now();
 	vector<string> gramWords[3], words;
 	extractWord(content, words);
 	vector<int> gramRate[3];
 	for (int i = 0; i < 3; i++) {
 		countAppearance(words, gramWords[i], gramRate[i], i);
-		for (int j = 0; j < gramWords[i].size(); i++) {
+		for (int j = 0; j < gramWords[i].size(); j++) {
 			keyWords += gramWords[i][j] + ' ' + to_string(gramRate[i][j]) + '\n';
 		}
-		return;
+	}
+	t2 = high_resolution_clock::now();
+	if (checktime == true) {
+		cout << "countAppearance took " << time_span.count() << " milliseconds.";
+		cout << endl << endl;
 	}
 }
 
@@ -116,6 +121,7 @@ void createMetadata(string root, string trainPath) {
 				cout << "Process File took " << time_span.count() << " milliseconds.";
 				cout << endl << endl;
 			}
+			//exit(0);
 			return; // run 1 file
 		}
 		high_resolution_clock::time_point tt2 = high_resolution_clock::now();
@@ -124,6 +130,7 @@ void createMetadata(string root, string trainPath) {
 			cout << "Process Topic took " << time_span.count() << " milliseconds.";
 			cout << endl << endl;
 		}
+		//return; // run 1 topic
 	}
 	in.close();
 	out.close();
