@@ -12,11 +12,9 @@
 #include <vector>
 #include <filesystem>
 #include <sstream>
-#include <regex>
 #include <algorithm>
 #include "stringFunction.h"
 #include "InOut.h"
-//#include "InOut.h"
 using namespace std;
 
 wstring idVowels = L"aAeEiIoOuUyYdD";
@@ -29,6 +27,7 @@ L"ùúụủũưừứựửữ", L"ÙÚỤỦŨƯỪỨỰỬỮ",
 L"ỳýỵỷỹ", L"ỲÝỴỶỸ",
 L"đ", L"Đ"};
 
+vector<string> stopWords;
 
 void lowerCase(string& str) {
 	for (int i = 0; i < str.size(); i++) {
@@ -53,7 +52,7 @@ void extractWord(string &content, vector<string>& words) {
 		words.push_back(word);
 	}
 }
-void deleteStopWord(string &content, vector<string>& stopWords) {
+void deleteStopWord(string &content) {
 	vector<string> childWords, momWords;
 	extractWord(content, momWords);
 	content = "";
@@ -99,7 +98,7 @@ string XoaDau(std::wstring &w_txt) { // XoaDau + LowerCase
 	string txt(w_txt.begin(), w_txt.end());
 	return txt;
 }
-void createStopWord(vector<string>& stopWords) {
+void createStopWord() {
 	wstring w_content = ReadFileUTF8("vietnamese-stopwords.txt");
 	string content = XoaDau(w_content);
 	char* tmp;

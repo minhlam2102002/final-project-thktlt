@@ -24,6 +24,12 @@
     <ClCompile Include="stringFunction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="queryFunction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="createMetadata.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="InOut.h">
@@ -32,9 +38,27 @@
     <ClInclude Include="stringFunction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="queryFunction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="createMetadata.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="vietnamese-stopwords.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="source\metadata.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="source\index.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="addFile.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="deleteFile.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

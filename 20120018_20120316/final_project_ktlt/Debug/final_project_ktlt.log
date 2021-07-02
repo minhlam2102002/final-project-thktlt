@@ -1,3 +1,5 @@
-﻿  main.cpp
-D:\college\KTLT\final_project_ktlt\20120018_20120316\final_project_ktlt\main.cpp(81,21): warning C4018: '<': signed/unsigned mismatch
+﻿  createMetadata.cpp
+D:\college\KTLT\final_project_ktlt\20120018_20120316\final_project_ktlt\createMetadata.cpp(79,21): warning C4018: '<': signed/unsigned mismatch
+  main.cpp
+  Generating Code...
   final_project_ktlt.vcxproj -> D:\college\KTLT\final_project_ktlt\20120018_20120316\Debug\final_project_ktlt.exe

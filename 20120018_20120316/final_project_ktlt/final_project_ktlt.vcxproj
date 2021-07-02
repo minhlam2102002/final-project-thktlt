@@ -140,15 +140,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="createMetadata.cpp" />
     <ClCompile Include="InOut.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="queryFunction.cpp" />
     <ClCompile Include="stringFunction.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="createMetadata.h" />
     <ClInclude Include="InOut.h" />
+    <ClInclude Include="queryFunction.h" />
     <ClInclude Include="stringFunction.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="addFile.txt" />
+    <Text Include="deleteFile.txt" />
+    <Text Include="source\index.txt" />
+    <Text Include="source\metadata.txt" />
     <Text Include="vietnamese-stopwords.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

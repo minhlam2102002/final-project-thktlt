@@ -12,10 +12,6 @@
 #include <filesystem>
 #include "InOut.h"
 using namespace std;
-void InOut() {
-	_setmode(_fileno(stdout), _O_WTEXT); //needed for output
-	_setmode(_fileno(stdin), _O_WTEXT); //needed for input
-}
 
 std::wstring ReadFileUTF8(string path) {
 	std::wstring line, res;
