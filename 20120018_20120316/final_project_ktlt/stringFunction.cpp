@@ -13,7 +13,6 @@
 #include <filesystem>
 #include <sstream>
 #include <algorithm>
-#include <utility>
 #include "stringFunction.h"
 #include "InOut.h"
 using namespace std;
@@ -26,7 +25,7 @@ L"ìíịỉĩ", L"ÌÍỊỈĨ",
 L"òóọỏõôồốộổỗơờớợởỡ", L"ÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠ",
 L"ùúụủũưừứựửữ", L"ÙÚỤỦŨƯỪỨỰỬỮ",
 L"ỳýỵỷỹ", L"ỲÝỴỶỸ",
-L"đ", L"Đ"};
+L"đ", L"Đ" };
 
 vector<string> stopWords;
 
@@ -40,12 +39,12 @@ void fixWord(string& str) {
 		if (!((str[i] >= 'a' && str[i] <= 'z') ||
 			(str[i] >= 'A' && str[i] <= 'Z') ||
 			(str[i] >= '0' && str[i] <= '9') ||
-			str[i] == '\n' || str[i] == '\'')) {
+			str[i] == '\n')) {
 			str[i] = ' ';
 		}
 	}
 }
-void extractWord(string &content, vector<string>& words) {
+void extractWord(string& content, vector<string>& words) {
 	words.clear();
 	stringstream ss(content);
 	string word;
@@ -53,7 +52,7 @@ void extractWord(string &content, vector<string>& words) {
 		words.push_back(word);
 	}
 }
-void deleteStopWord(string &content) {
+void deleteStopWord(string& content) {
 	vector<string> childWords, momWords;
 	extractWord(content, momWords);
 	content = "";
@@ -61,7 +60,7 @@ void deleteStopWord(string &content) {
 		int fr = lower_bound(stopWords.begin(), stopWords.end(), momWords[i]) - stopWords.begin();
 		int to = upper_bound(stopWords.begin(), stopWords.end(), momWords[i]) - stopWords.begin();
 		bool isDif = false;
-		for(int j = fr; j < stopWords.size(); j++){
+		for (int j = fr; j < stopWords.size(); j++) {
 			isDif = false;
 			extractWord(stopWords[j], childWords);
 			if (stopWords[j] != childWords[0]) {
@@ -86,8 +85,8 @@ void deleteStopWord(string &content) {
 		}
 	}
 }
-string XoaDau(std::wstring &w_txt) { // XoaDau + LowerCase
-	for (auto &c : w_txt) {
+string XoaDau(std::wstring& w_txt) { // XoaDau + LowerCase
+	for (auto& c : w_txt) {
 		for (int i = 0; i < 14; i++) {
 			for (auto v : vowels[i]) {
 				if (c == v) {
@@ -117,24 +116,24 @@ void createStopWord() {
 	delete[] tmp;
 	sort(stopWords.begin(), stopWords.end());
 }
-void countAppearance(vector<string> &words, vector<pair<string, int>>& grams, int type) { // count appear child in mom = res
+void countAppearance(vector<string>& words, vector<string>& grams, vector<int>& rate, int type) { // count appear child in mom = res
 	for (int i = 0; i < words.size() - type; i++) {
 		string token;
 		for (int j = i; j <= i + type; j++) {
 			token += words[j] + ' ';
 		}
 		token.pop_back();
-		grams.push_back({ token, 0 });
+		grams.push_back(token);
 	}
 	vector<string> gramToken;
 	sort(grams.begin(), grams.end());
 	grams.resize(unique(grams.begin(), grams.end()) - grams.begin());
+	rate.assign(grams.size(), 0);
 	for (int i = 0; i < words.size(); i++) {
-		pair<string, int> tmp = make_pair(words[i], 0.0);
-		int fr = lower_bound(grams.begin(), grams.end(), tmp) - grams.begin();
+		int fr = lower_bound(grams.begin(), grams.end(), words[i]) - grams.begin();
 		for (int j = fr; j < grams.size(); j++) {
 			bool isSame = true;
-			extractWord(grams[j].first, gramToken);
+			extractWord(grams[j], gramToken);
 			if (words[i] != gramToken[0]) {
 				break;
 			}
@@ -148,14 +147,11 @@ void countAppearance(vector<string> &words, vector<pair<string, int>>& grams, in
 				}
 			}
 			if (isSame == true) {
-				grams[j].second++;
+				rate[j]++;
 			}
 		}
 	}
-	for (int i = 0; i < grams.size(); i++) {
-		grams[i].second = (float)grams[i].second / (words.size() - type) * 100 * 100;
+	for (int i = 0; i < rate.size(); i++) {
+		rate[i] = (float)rate[i] / (words.size() - type) * 100 * 100;
 	}
-	sort(grams.begin(), grams.end(), [](const pair<string, int>& a, const pair<string, int>& b) {
-		return a.second > b.second;
-	});
 }

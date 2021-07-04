@@ -12,7 +12,7 @@
 #include <vector>
 #include <filesystem>
 #include <sstream>
-#include <utility>
+#include <regex>
 #include "InOut.h"
 #include "stringFunction.h"
 
@@ -63,26 +63,35 @@ void extractKeyWord(string path, string& keyWords) { // exctract file at path
 	string content = XoaDau(w_content);
 	lowerCase(content);
 	fixWord(content);
+	high_resolution_clock::time_point t1 = high_resolution_clock::now();
 	deleteStopWord(content);
-	vector<pair<string, int>> grams[3];
-	vector<string> words;
+	high_resolution_clock::time_point t2 = high_resolution_clock::now();
+	duration<double, std::milli> time_span = t2 - t1;
+	cout << "deleteStopWord took " << time_span.count() << " milliseconds.";
+	cout << endl << endl;
+	t1 = high_resolution_clock::now();
+	vector<string> gramWords[3], words;
 	extractWord(content, words);
+	vector<int> gramRate[3];
 	int a = 100, b = 500;
 	for (int i = 0; i < 3; i++) {
-		countAppearance(words, grams[i], i);
+		countAppearance(words, gramWords[i], gramRate[i], i);
 		int cnt = 0;
-		for (int j = 0; j < grams[i].size(); j++) {
-			if (grams[i][j].second >= a && grams[i][j].second <= b) {
+		for (int j = 0; j < gramRate[i].size(); j++) {
+			if (gramRate[i][j] >= a && gramRate[i][j] <= b) {
 				cnt++;
 			}
 		}
 		keyWords += to_string(cnt) + '\n';
-		for (int j = 0; j < grams[i].size(); j++) {
-			if (grams[i][j].second >= a && grams[i][j].second <= b) {
-				keyWords += grams[i][j].first + ' ' + to_string(grams[i][j].second) + '\n';
+		for (int j = 0; j < gramWords[i].size(); j++) {
+			if (gramRate[i][j] >= a && gramRate[i][j] <= b) {
+				keyWords += gramWords[i][j] + ' ' + to_string(gramRate[i][j]) + '\n';
 			}
 		}
 	}
+	t2 = high_resolution_clock::now();
+	cout << "countAppearance took " << time_span.count() << " milliseconds.";
+	cout << endl << endl;
 }
 
 void createMetadata(string root, string trainPath) {
@@ -105,7 +114,6 @@ void createMetadata(string root, string trainPath) {
 		fin >> numFiles;
 		fout << numFiles << endl;
 		fin.ignore();
-		int cnt = 0;
 		while (numFiles--) {
 			high_resolution_clock::time_point t1 = high_resolution_clock::now();
 			getline(fin, curFile);
@@ -119,10 +127,6 @@ void createMetadata(string root, string trainPath) {
 			cout << "Process File took " << time_span.count() << " milliseconds.";
 			cout << endl << endl;
 			//return; // run 1 file
-			cnt++;
-			if (cnt == 3) {
-				//return;
-			}
 		}
 		high_resolution_clock::time_point tt2 = high_resolution_clock::now();
 		duration<double, std::milli> time_span = tt2 - tt1;

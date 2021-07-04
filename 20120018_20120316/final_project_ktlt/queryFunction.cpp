@@ -14,25 +14,41 @@
 #include <sstream>
 #include <algorithm>
 #include "queryFunction.h"
+#include "InOut.h"
 #include "stringFunction.h"
 #include "createMetadata.h"
 using namespace std;
 
-void Search(string input, string res) {
-
+void compare(Data &metadata, vector<string> &words, int type) {
+	vector<string> gram;
+	for (int i = 0; i < words.size() - type; i++) {
+		string token;
+		for (int j = i; j <= i + type; j++) {
+			token += words[j] + ' ';
+		}
+		token.pop_back();
+		metadata.compare(token, type);
+	}
 }
-bool deleteFile(string path) {
-	ofstream fout("deleteFile.txt", std::ofstream::out | std::ofstream::app);
-	fout << extractFileName(path) << endl;
-	fout.close();
-	return true;
-}
-bool addFile(string path) {
-	ofstream fout("addFile.txt", std::ofstream::out | std::ofstream::app);
-	string keyWord;
-	extractKeyWord(path, keyWord);
-	fout << extractFileName(path) << endl;
-	fout << keyWord;
-	fout.close();
-	return true;
+void Search(Data &metadata, string &input, vector<pair<string, int>> &res) {
+	fixWord(input);
+	lowerCase(input);
+	string tmp = input;
+	deleteStopWord(tmp);
+	if (tmp.size() > 0) {
+		input = tmp;
+	}
+	vector<string> words;
+	extractWord(input, words);
+	for (int type = 0; type < min((int)3, (int)words.size()); type++) {
+		compare(metadata, words, type);
+	}
+	metadata.search(res);
+	sort(res.begin(), res.end(), [](const pair<string, int>& a, const pair<string, int>& b) {
+		return a.second > b.second;
+	});
+	cout << input << endl;
+	for (int i = 0; i < min((int)25, (int)res.size()); i++) {
+		cout << res[i].first << ' ' << res[i].second << endl;
+	}
 }
