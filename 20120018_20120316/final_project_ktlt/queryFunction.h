@@ -39,7 +39,7 @@ struct Topic {
 		files.resize(numFiles);
 		for (int i = 0; i < numFiles; i++) {
 			files[i].Read(fin);
-			return; // read 1 file
+			//return; // read 1 file
 		}
 	}
 };
@@ -53,7 +53,7 @@ struct Data {
 		topics.resize(numTopic);
 		for (int i = 0; i < numTopic; i++) {
 			topics[i].Read(fin);
-			return; // read 1 file
+			//return; // read 1 file
 		}
 		fin.close();
 	}

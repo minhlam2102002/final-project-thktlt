@@ -13,6 +13,7 @@
 #include <filesystem>
 #include <sstream>
 #include <algorithm>
+#include <utility>
 #include "stringFunction.h"
 #include "InOut.h"
 using namespace std;
@@ -39,7 +40,7 @@ void fixWord(string& str) {
 		if (!((str[i] >= 'a' && str[i] <= 'z') ||
 			(str[i] >= 'A' && str[i] <= 'Z') ||
 			(str[i] >= '0' && str[i] <= '9') ||
-			str[i] == '\n')) {
+			str[i] == '\n' || str[i] == '\'')) {
 			str[i] = ' ';
 		}
 	}
@@ -116,24 +117,24 @@ void createStopWord() {
 	delete[] tmp;
 	sort(stopWords.begin(), stopWords.end());
 }
-void countAppearance(vector<string> &words, vector<string>& grams, vector<int>& rate, int type) { // count appear child in mom = res
+void countAppearance(vector<string> &words, vector<pair<string, int>>& grams, int type) { // count appear child in mom = res
 	for (int i = 0; i < words.size() - type; i++) {
 		string token;
 		for (int j = i; j <= i + type; j++) {
 			token += words[j] + ' ';
 		}
 		token.pop_back();
-		grams.push_back(token);
+		grams.push_back({ token, 0 });
 	}
 	vector<string> gramToken;
 	sort(grams.begin(), grams.end());
 	grams.resize(unique(grams.begin(), grams.end()) - grams.begin());
-	rate.assign(grams.size(), 0);
 	for (int i = 0; i < words.size(); i++) {
-		int fr = lower_bound(grams.begin(), grams.end(), words[i]) - grams.begin();
+		pair<string, int> tmp = make_pair(words[i], 0.0);
+		int fr = lower_bound(grams.begin(), grams.end(), tmp) - grams.begin();
 		for (int j = fr; j < grams.size(); j++) {
 			bool isSame = true;
-			extractWord(grams[j], gramToken);
+			extractWord(grams[j].first, gramToken);
 			if (words[i] != gramToken[0]) {
 				break;
 			}
@@ -147,8 +148,14 @@ void countAppearance(vector<string> &words, vector<string>& grams, vector<int>& 
 				}
 			}
 			if (isSame == true) {
-				rate[j]++;
+				grams[j].second++;
 			}
 		}
 	}
+	for (int i = 0; i < grams.size(); i++) {
+		grams[i].second = (float)grams[i].second / (words.size() - type) * 100 * 100;
+	}
+	sort(grams.begin(), grams.end(), [](const pair<string, int>& a, const pair<string, int>& b) {
+		return a.second > b.second;
+	});
 }

@@ -12,7 +12,7 @@
 #include <vector>
 #include <filesystem>
 #include <sstream>
-#include <regex>
+#include <utility>
 #include "InOut.h"
 #include "stringFunction.h"
 #include "createMetadata.h"
@@ -31,14 +31,14 @@ int main(){
 	string root = "D:\\college\\KTLT\\final_project_ktlt\\20120018_20120316\\final_project_ktlt\\source";
 	string trainPath = root + "\\Train\\new train";
 	Data metadata;
-	//metadata.Read(root + "\\metadata.txt");
-	//addFile("AN_TN_ (878).txt");
-	//deleteFile("AN_TN_ (878).txt");
-	//return 0;
 	high_resolution_clock::time_point Begin = high_resolution_clock::now();
+	//metadata.Read(root + "\\metadata.txt");
 	createMetadata(root, trainPath);
 	high_resolution_clock::time_point End = high_resolution_clock::now();
 	duration<double, std::milli> time_span = End - Begin;
 	cout << "All Process took " << time_span.count() << " milliseconds.";
+	//addFile("AN_TN_ (878).txt");
+	//deleteFile("AN_TN_ (878).txt");
+	return 0;
 	cout << endl << endl;
 }
