@@ -1,0 +1,18 @@
+﻿  main.cpp
+D:\college\KTLT\final_project_ktlt\20120018_20120316\final_project_ktlt\metadata.h(50,22): warning C4018: '<': signed/unsigned mismatch
+D:\college\KTLT\final_project_ktlt\20120018_20120316\final_project_ktlt\metadata.h(92,21): warning C4018: '<': signed/unsigned mismatch
+D:\college\KTLT\final_project_ktlt\20120018_20120316\final_project_ktlt\metadata.h(100,21): warning C4018: '<': signed/unsigned mismatch
+D:\college\KTLT\final_project_ktlt\20120018_20120316\final_project_ktlt\metadata.h(120,21): warning C4018: '<': signed/unsigned mismatch
+D:\college\KTLT\final_project_ktlt\20120018_20120316\final_project_ktlt\metadata.h(126,21): warning C4018: '<': signed/unsigned mismatch
+D:\college\KTLT\final_project_ktlt\20120018_20120316\final_project_ktlt\metadata.h(131,21): warning C4018: '<': signed/unsigned mismatch
+D:\college\KTLT\final_project_ktlt\20120018_20120316\final_project_ktlt\metadata.h(134,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\college\KTLT\final_project_ktlt\20120018_20120316\final_project_ktlt\metadata.h(161,21): warning C4018: '<': signed/unsigned mismatch
+D:\college\KTLT\final_project_ktlt\20120018_20120316\final_project_ktlt\metadata.h(173,21): warning C4018: '<': signed/unsigned mismatch
+D:\college\KTLT\final_project_ktlt\20120018_20120316\final_project_ktlt\metadata.h(184,21): warning C4018: '<': signed/unsigned mismatch
+D:\college\KTLT\final_project_ktlt\20120018_20120316\final_project_ktlt\metadata.h(193,21): warning C4018: '<': signed/unsigned mismatch
+D:\college\KTLT\final_project_ktlt\20120018_20120316\final_project_ktlt\metadata.h(210,21): warning C4018: '<': signed/unsigned mismatch
+D:\college\KTLT\final_project_ktlt\20120018_20120316\final_project_ktlt\metadata.h(232,21): warning C4018: '<': signed/unsigned mismatch
+D:\college\KTLT\final_project_ktlt\20120018_20120316\final_project_ktlt\metadata.h(239,21): warning C4018: '<': signed/unsigned mismatch
+D:\college\KTLT\final_project_ktlt\20120018_20120316\final_project_ktlt\metadata.h(244,21): warning C4018: '<': signed/unsigned mismatch
+D:\college\KTLT\final_project_ktlt\20120018_20120316\final_project_ktlt\metadata.h(260,22): warning C4018: '<': signed/unsigned mismatch
+  final_project_ktlt.vcxproj -> D:\college\KTLT\final_project_ktlt\20120018_20120316\Debug\final_project_ktlt.exe

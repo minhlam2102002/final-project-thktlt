@@ -1,0 +1,803 @@
+2
+Am nhac
+4
+AN_TN_ (878).txt
+37
+10 250
+20 250
+2006 250
+4 500
+am 250
+chuong 250
+dien 250
+gia 250
+giang 250
+giot 250
+ha 250
+hcm 250
+hen 250
+hien 250
+hoang 500
+huong 250
+khuc 250
+lac 250
+le 250
+liveshow 250
+luu 250
+mau 250
+mien 250
+ngoc 250
+nguyen 250
+nhac 250
+phuong 250
+sac 250
+suong 250
+tien 250
+tp 250
+trinh 250
+uoc 500
+vuong 250
+vy 250
+wishband 250
+yeu 250
+39
+10 4 256
+20 10 256
+2006 lac 256
+4 2006 256
+4 dien 256
+am nhac 256
+chuong trinh 256
+dien 20 256
+gia chuong 256
+giang vuong 256
+giot suong 256
+ha phuong 256
+hcm gia 256
+hen uoc 256
+hien khuc 256
+hoang le 256
+huong giang 256
+khuc uoc 256
+lac nguyen 256
+le vy 256
+liveshow sac 256
+luu huong 256
+mau am 256
+mien giot 256
+ngoc ha 256
+nguyen tp 256
+nhac 4 256
+phuong luu 256
+sac mau 256
+suong tien 256
+tien hen 256
+tp hcm 256
+trinh ngoc 256
+uoc hoang 256
+uoc yeu 256
+vuong hoang 256
+vy wishband 256
+wishband hien 256
+yeu mien 256
+38
+10 4 2006 263
+20 10 4 263
+2006 lac nguyen 263
+4 2006 lac 263
+4 dien 20 263
+am nhac 4 263
+chuong trinh ngoc 263
+dien 20 10 263
+gia chuong trinh 263
+giang vuong hoang 263
+giot suong tien 263
+ha phuong luu 263
+hcm gia chuong 263
+hen uoc hoang 263
+hien khuc uoc 263
+hoang le vy 263
+huong giang vuong 263
+khuc uoc yeu 263
+lac nguyen tp 263
+le vy wishband 263
+liveshow sac mau 263
+luu huong giang 263
+mau am nhac 263
+mien giot suong 263
+ngoc ha phuong 263
+nguyen tp hcm 263
+nhac 4 dien 263
+phuong luu huong 263
+sac mau am 263
+suong tien hen 263
+tien hen uoc 263
+tp hcm gia 263
+trinh ngoc ha 263
+uoc yeu mien 263
+vuong hoang le 263
+vy wishband hien 263
+wishband hien khuc 263
+yeu mien giot 263
+AN_TN_ (879).txt
+23
+album 163
+am 163
+blackmore's 245
+candice 163
+child 136
+deep 163
+dia 136
+dinh 108
+doan 108
+guitar 136
+hat 326
+in 163
+khuc 108
+nhac 299
+night 272
+of 163
+purple 163
+rainbow 136
+richie 136
+rock 108
+street 108
+tieng 163
+time 136
+5
+blackmore's night 245
+child in 136
+deep purple 163
+in time 136
+street of 109
+1
+child in time 136
+AN_TN_ (880).txt
+24
+2 217
+4 144
+bao 144
+cam 289
+chuong 289
+cong 434
+gia 289
+gon 144
+hien 144
+hinh 289
+khan 144
+khuc 144
+luu 289
+nhac 362
+niem 217
+sai 144
+sbtn 144
+show 289
+son 289
+tien 144
+tro 144
+truyen 289
+tuong 289
+viet 217
+17
+2 show 218
+chuong trinh 291
+cong son 218
+dien 2 145
+dien my 145
+hien khuc 145
+hinh cam 145
+khan gia 145
+luu dien 291
+my tuong 145
+nhac trinh 218
+niem nhac 145
+sai gon 145
+show dien 145
+trinh cong 364
+truyen hinh 291
+tuong niem 145
+9
+chuong trinh cong 147
+dien 2 show 147
+dien my tuong 147
+luu dien my 147
+nhac trinh cong 220
+niem nhac trinh 147
+trinh cong son 220
+truyen hinh cam 147
+tuong niem nhac 147
+AN_TN_ (881).txt
+58
+19h30 111
+20 111
+2006 111
+26 111
+27 111
+4 111
+bach 111
+bao 222
+beo 111
+che 111
+chuong 333
+dam 111
+dem 111
+dien 222
+dinh 111
+doan 111
+dong 111
+hai 222
+hcm 111
+he 222
+hoang 333
+hong 222
+hung 444
+huong 111
+kasim 111
+khanh 111
+khau 222
+kieu 111
+kim 444
+linh 333
+ly 333
+mc 111
+mung 111
+my 222
+ngoc 111
+nguyen 111
+nhac 444
+phi 111
+phuc 111
+phung 111
+phuong 333
+quang 111
+quoc 111
+san 222
+sinh 111
+son 111
+suong 111
+thoai 111
+tien 111
+tp 111
+trang 111
+trinh 333
+truong 111
+tuan 222
+ung 111
+vinh 111
+vu 222
+yen 222
+86
+19h30 san 112
+20 doan 112
+2006 19h30 112
+26 27 112
+27 4 112
+4 2006 112
+bach kim 112
+bao quoc 112
+bao yen 112
+beo hong 112
+che hong 112
+chuong trinh 337
+dam vinh 112
+dem he 112
+dien chuong 112
+dien hai 112
+dinh phuong 112
+doan nhac 112
+dong tp 112
+hai 26 112
+hai nguyen 112
+hcm nhac 112
+he chuong 112
+he mc 112
+hoang he 112
+hoang phuc 112
+hoang vu 112
+hong quang 112
+hong tuan 112
+hung kasim 112
+hung ly 112
+hung my 112
+huong bao 112
+kasim hoang 112
+khanh kim 112
+khau dien 112
+khau nhac 112
+kieu tien 112
+kim khanh 112
+kim kim 112
+kim tuan 112
+kim yen 112
+linh dam 112
+linh linh 112
+linh thoai 112
+ly hai 112
+ly hung 112
+ly huong 112
+mc bach 112
+mung sinh 112
+my suong 112
+my truong 112
+ngoc son 112
+nguyen phi 112
+nhac dem 112
+nhac dong 112
+nhac mung 112
+nhac san 112
+phi hung 112
+phuc phung 112
+phung kieu 112
+phuong beo 112
+phuong dinh 112
+phuong ngoc 112
+quang linh 112
+quoc phuong 112
+san khau 224
+sinh 20 112
+son che 112
+suong ly 112
+thoai my 112
+tien vu 112
+tp hcm 112
+trang kim 112
+trinh dien 112
+trinh nhac 112
+trinh trang 112
+truong ly 112
+tuan hoang 112
+tuan hung 112
+ung hoang 112
+vinh hung 112
+vu linh 112
+vu ung 112
+yen bao 112
+yen phuong 112
+88
+19h30 san khau 113
+20 doan nhac 113
+2006 19h30 san 113
+26 27 4 113
+27 4 2006 113
+4 2006 19h30 113
+bach kim khanh 113
+bao quoc phuong 113
+bao yen phuong 113
+beo hong tuan 113
+che hong quang 113
+chuong trinh dien 113
+chuong trinh nhac 113
+chuong trinh trang 113
+dam vinh hung 113
+dem he chuong 113
+dien chuong trinh 113
+dien hai 26 113
+dinh phuong ngoc 113
+doan nhac dem 113
+dong tp hcm 113
+hai 26 27 113
+hai nguyen phi 113
+hcm nhac san 113
+he chuong trinh 113
+he mc bach 113
+hoang he mc 113
+hoang phuc phung 113
+hoang vu ung 113
+hong quang linh 113
+hong tuan hoang 113
+hung kasim hoang 113
+hung ly huong 113
+hung my truong 113
+huong bao quoc 113
+kasim hoang vu 113
+khanh kim kim 113
+khau dien chuong 113
+khau nhac dong 113
+kieu tien vu 113
+kim khanh kim 113
+kim kim tuan 113
+kim tuan hung 113
+kim yen bao 113
+linh dam vinh 113
+linh linh thoai 113
+linh thoai my 113
+ly hai nguyen 113
+ly hung ly 113
+ly huong bao 113
+mc bach kim 113
+mung sinh 20 113
+my suong ly 113
+my truong ly 113
+ngoc son che 113
+nguyen phi hung 113
+nhac dem he 113
+nhac dong tp 113
+nhac mung sinh 113
+nhac san khau 113
+phi hung kasim 113
+phuc phung kieu 113
+phung kieu tien 113
+phuong beo hong 113
+phuong dinh phuong 113
+phuong ngoc son 113
+quang linh dam 113
+quoc phuong beo 113
+san khau dien 113
+san khau nhac 113
+sinh 20 doan 113
+son che hong 113
+suong ly hung 113
+thoai my suong 113
+tien vu linh 113
+tp hcm nhac 113
+trang kim yen 113
+trinh dien hai 113
+trinh nhac mung 113
+trinh trang kim 113
+truong ly hai 113
+tuan hoang he 113
+ung hoang phuc 113
+vinh hung my 113
+vu linh linh 113
+vu ung hoang 113
+yen bao yen 113
+yen phuong dinh 113
+Other
+2
+AT_NLD_ (259).txt
+54
+1 300
+10 100
+2 200
+200g 100
+3 300
+4 300
+bep 200
+bien 100
+bot 200
+cat 400
+chao 200
+che 100
+chien 200
+chut 100
+dam 100
+doan 100
+doc 100
+duong 400
+gioi 100
+giot 100
+giup 100
+got 200
+hai 100
+han 100
+hang 100
+hop 100
+huong 100
+lieu 200
+lop 100
+luoc 100
+me 200
+mieng 100
+mon 400
+mong 100
+muoi 200
+muong 200
+ngang 100
+nguyen 200
+ot 100
+phoi 100
+rac 100
+rach 200
+sach 100
+sen 100
+ta 100
+than 100
+thuy 100
+tieu 200
+trung 100
+truong 200
+tuong 100
+uop 100
+vot 100
+xao 100
+88
+1 4 202
+1 na 101
+10 200g 101
+2 duong 101
+2 sach 101
+200g muoi 101
+3 na 101
+3 rach 101
+3 xien 101
+4 chien 101
+4 muong 202
+bep truong 202
+bien mon 101
+bot che 101
+bot lop 101
+cat cat 101
+cat doan 101
+cat ngang 101
+cat rach 101
+chao mon 101
+chao xao 101
+che bien 101
+chien vot 101
+chut bot 101
+dam sen 101
+doan 2 101
+doc mon 101
+duong 1 101
+duong me 101
+duong mieng 101
+duong xien 101
+gioi doc 101
+giot bot 101
+giup huong 101
+got cat 101
+got trung 101
+hai duong 101
+han xien 101
+hang thuy 101
+hop na 101
+huong mon 101
+lieu 3 101
+lieu 4 101
+lop mong 101
+luoc chao 101
+me giot 101
+me xien 101
+mieng 3 101
+mon na 303
+mon nguyen 101
+mong nguyen 101
+muoi 1 101
+muoi tieu 101
+muong duong 101
+muong tieu 101
+na 10 101
+na giup 101
+na got 101
+na luoc 101
+na tuong 101
+na xien 404
+ngang than 101
+nguyen lieu 202
+ot got 101
+phoi hop 101
+rac chut 101
+rach 2 101
+rach hai 101
+sach cat 101
+sen gioi 101
+ta dam 101
+than 3 101
+thuy ta 101
+tieu duong 101
+tieu me 101
+trung cat 101
+truong hang 101
+truong phoi 101
+tuong ot 101
+uop muoi 101
+vot chao 101
+xao han 101
+xien 1 101
+xien bep 202
+xien chien 101
+xien na 202
+xien rac 101
+xien uop 101
+93
+1 4 muong 204
+1 na got 102
+10 200g muoi 102
+2 duong xien 102
+2 sach cat 102
+200g muoi 1 102
+3 na 10 102
+3 rach hai 102
+3 xien uop 102
+4 chien vot 102
+4 muong duong 102
+4 muong tieu 102
+bep truong hang 102
+bep truong phoi 102
+bien mon na 102
+bot che bien 102
+bot lop mong 102
+cat cat rach 102
+cat doan 2 102
+cat ngang than 102
+cat rach 2 102
+chao mon na 102
+chao xao han 102
+che bien mon 102
+chien vot chao 102
+chut bot lop 102
+dam sen gioi 102
+doan 2 sach 102
+doc mon na 102
+duong 1 4 102
+duong me xien 102
+duong mieng 3 102
+duong xien chien 102
+gioi doc mon 102
+giot bot che 102
+giup huong mon 102
+got cat cat 102
+got trung cat 102
+hai duong mieng 102
+han xien na 102
+hang thuy ta 102
+hop na giup 102
+huong mon nguyen 102
+lieu 3 na 102
+lieu 4 chien 102
+lop mong nguyen 102
+luoc chao mon 102
+me giot bot 102
+me xien rac 102
+mieng 3 xien 102
+mon na xien 306
+mon nguyen lieu 102
+mong nguyen lieu 102
+muoi 1 4 102
+muoi tieu duong 102
+muong duong 1 102
+muong tieu me 102
+na 10 200g 102
+na giup huong 102
+na got trung 102
+na luoc chao 102
+na tuong ot 102
+na xien 1 102
+na xien bep 204
+na xien na 102
+ngang than 3 102
+nguyen lieu 3 102
+nguyen lieu 4 102
+ot got cat 102
+phoi hop na 102
+rac chut bot 102
+rach 2 duong 102
+rach hai duong 102
+sach cat ngang 102
+sen gioi doc 102
+ta dam sen 102
+than 3 rach 102
+thuy ta dam 102
+tieu duong me 102
+tieu me giot 102
+trung cat doan 102
+truong hang thuy 102
+truong phoi hop 102
+tuong ot got 102
+uop muoi tieu 102
+vot chao xao 102
+xao han xien 102
+xien 1 na 102
+xien bep truong 204
+xien na luoc 102
+xien na tuong 102
+xien rac chut 102
+xien uop muoi 102
+AN_TN_ (878).txt
+37
+10 250
+20 250
+2006 250
+4 500
+am 250
+chuong 250
+dien 250
+gia 250
+giang 250
+giot 250
+ha 250
+hcm 250
+hen 250
+hien 250
+hoang 500
+huong 250
+khuc 250
+lac 250
+le 250
+liveshow 250
+luu 250
+mau 250
+mien 250
+ngoc 250
+nguyen 250
+nhac 250
+phuong 250
+sac 250
+suong 250
+tien 250
+tp 250
+trinh 250
+uoc 500
+vuong 250
+vy 250
+wishband 250
+yeu 250
+39
+10 4 256
+20 10 256
+2006 lac 256
+4 2006 256
+4 dien 256
+am nhac 256
+chuong trinh 256
+dien 20 256
+gia chuong 256
+giang vuong 256
+giot suong 256
+ha phuong 256
+hcm gia 256
+hen uoc 256
+hien khuc 256
+hoang le 256
+huong giang 256
+khuc uoc 256
+lac nguyen 256
+le vy 256
+liveshow sac 256
+luu huong 256
+mau am 256
+mien giot 256
+ngoc ha 256
+nguyen tp 256
+nhac 4 256
+phuong luu 256
+sac mau 256
+suong tien 256
+tien hen 256
+tp hcm 256
+trinh ngoc 256
+uoc hoang 256
+uoc yeu 256
+vuong hoang 256
+vy wishband 256
+wishband hien 256
+yeu mien 256
+38
+10 4 2006 263
+20 10 4 263
+2006 lac nguyen 263
+4 2006 lac 263
+4 dien 20 263
+am nhac 4 263
+chuong trinh ngoc 263
+dien 20 10 263
+gia chuong trinh 263
+giang vuong hoang 263
+giot suong tien 263
+ha phuong luu 263
+hcm gia chuong 263
+hen uoc hoang 263
+hien khuc uoc 263
+hoang le vy 263
+huong giang vuong 263
+khuc uoc yeu 263
+lac nguyen tp 263
+le vy wishband 263
+liveshow sac mau 263
+luu huong giang 263
+mau am nhac 263
+mien giot suong 263
+ngoc ha phuong 263
+nguyen tp hcm 263
+nhac 4 dien 263
+phuong luu huong 263
+sac mau am 263
+suong tien hen 263
+tien hen uoc 263
+tp hcm gia 263
+trinh ngoc ha 263
+uoc yeu mien 263
+vuong hoang le 263
+vy wishband hien 263
+wishband hien khuc 263
+yeu mien giot 263
