@@ -1,0 +1,16 @@
+﻿  UI.cpp
+C:\Users\Acer\Documents\GitHub\final_project_ktlt\20120018_20120316\final_project_ktlt\queryFunction.h(79,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Acer\Documents\GitHub\final_project_ktlt\20120018_20120316\final_project_ktlt\queryFunction.h(88,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Acer\Documents\GitHub\final_project_ktlt\20120018_20120316\final_project_ktlt\queryFunction.h(109,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Acer\Documents\GitHub\final_project_ktlt\20120018_20120316\final_project_ktlt\queryFunction.h(115,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Acer\Documents\GitHub\final_project_ktlt\20120018_20120316\final_project_ktlt\queryFunction.h(129,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Acer\Documents\GitHub\final_project_ktlt\20120018_20120316\final_project_ktlt\queryFunction.h(138,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Acer\Documents\GitHub\final_project_ktlt\20120018_20120316\final_project_ktlt\queryFunction.h(155,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Acer\Documents\GitHub\final_project_ktlt\20120018_20120316\final_project_ktlt\queryFunction.h(179,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Acer\Documents\GitHub\final_project_ktlt\20120018_20120316\final_project_ktlt\queryFunction.h(186,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Acer\Documents\GitHub\final_project_ktlt\20120018_20120316\final_project_ktlt\queryFunction.h(191,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Acer\Documents\GitHub\final_project_ktlt\20120018_20120316\final_project_ktlt\UI.cpp(85,47): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Acer\Documents\GitHub\final_project_ktlt\20120018_20120316\final_project_ktlt\UI.cpp(51,9): warning C4101: 'n': unreferenced local variable
+C:\Users\Acer\Documents\GitHub\final_project_ktlt\20120018_20120316\final_project_ktlt\UI.cpp(96,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Acer\Documents\GitHub\final_project_ktlt\20120018_20120316\final_project_ktlt\UI.cpp(121,39): warning C4018: '<': signed/unsigned mismatch
+  final_project_ktlt.vcxproj -> C:\Users\Acer\Documents\GitHub\final_project_ktlt\20120018_20120316\Debug\final_project_ktlt.exe
