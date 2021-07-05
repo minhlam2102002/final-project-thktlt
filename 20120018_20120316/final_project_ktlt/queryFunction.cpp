@@ -19,17 +19,6 @@
 #include "createMetadata.h"
 using namespace std;
 
-void compare(Data &metadata, vector<string> &words, int type) {
-	vector<string> gram;
-	for (int i = 0; i < words.size() - type; i++) {
-		string token;
-		for (int j = i; j <= i + type; j++) {
-			token += words[j] + ' ';
-		}
-		token.pop_back();
-		metadata.compare(token, type);
-	}
-}
 void Search(Data &metadata, string &input, vector<pair<string, int>> &res) {
 	fixWord(input);
 	lowerCase(input);
@@ -40,8 +29,16 @@ void Search(Data &metadata, string &input, vector<pair<string, int>> &res) {
 	}
 	vector<string> words;
 	extractWord(input, words);
-	for (int type = 0; type < min((int)3, (int)words.size()); type++) {
-		compare(metadata, words, type);
+	for (int type = 0; type < min(3, (int)words.size()); type++) {
+		vector<string> gram;
+		for (int i = 0; i < words.size() - type; i++) {
+			string token;
+			for (int j = i; j <= i + type; j++) {
+				token += words[j] + ' ';
+			}
+			token.pop_back();
+			metadata.compare(token, type);
+		}
 	}
 	metadata.search(res);
 	sort(res.begin(), res.end(), [](const pair<string, int>& a, const pair<string, int>& b) {

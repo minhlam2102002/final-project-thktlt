@@ -15,6 +15,7 @@
 #include <regex>
 #include "InOut.h"
 #include "stringFunction.h"
+#include "queryFunction.h"
 
 #include <ctime>
 #include <ratio>
@@ -38,8 +39,10 @@ void getTopic(string path, vector<string>& topic) {
 		topic.push_back(extractFileName(p.string()));
 	}
 }
-void createIndexFile(string root, string trainPath, vector<string>& topic) {
-	ofstream out(root + "\\index.txt");
+void createIndexFile(string &trainPath) {
+	vector<string> topic;
+	getTopic(trainPath, topic);
+	ofstream out("source\\index.txt");
 	out << topic.size() << endl;
 	for (string topicName : topic) {
 		out << topicName << endl;
@@ -49,30 +52,22 @@ void createIndexFile(string root, string trainPath, vector<string>& topic) {
 			files.push_back(extractFileName(p.string()));
 		}
 		out << files.size() << endl;
-		for (string cur : files) {
+		for (string &cur : files) {
 			out << cur << endl;
 		}
-
 	}
 	out.close();
 }
 
-void extractKeyWord(string path, string& keyWords) { // exctract file at path
-	//su dung tien xu ly :vvvv
+void extractKeyWord(string path, string& keyWords) { 
 	wstring w_content = ReadFileUTF16(path);
 	string content = XoaDau(w_content);
 	lowerCase(content);
 	fixWord(content);
-	high_resolution_clock::time_point t1 = high_resolution_clock::now();
 	deleteStopWord(content);
-	high_resolution_clock::time_point t2 = high_resolution_clock::now();
-	duration<double, std::milli> time_span = t2 - t1;
-	cout << "deleteStopWord took " << time_span.count() << " milliseconds.";
-	cout << endl << endl;
-	t1 = high_resolution_clock::now();
 	vector<string> gramWords[3], words;
-	extractWord(content, words);
 	vector<int> gramRate[3];
+	extractWord(content, words);
 	int a = 100, b = 500;
 	for (int i = 0; i < 3; i++) {
 		countAppearance(words, gramWords[i], gramRate[i], i);
@@ -89,51 +84,41 @@ void extractKeyWord(string path, string& keyWords) { // exctract file at path
 			}
 		}
 	}
-	t2 = high_resolution_clock::now();
-	cout << "countAppearance took " << time_span.count() << " milliseconds.";
-	cout << endl << endl;
 }
 
-void createMetadata(string root, string trainPath) {
-	vector<string> topic;
+void createMetadata(string trainPath) {
 	createStopWord();
-	getTopic(trainPath, topic);
-	createIndexFile(root, trainPath, topic);
-	ifstream fin(root + "\\index.txt");
-	ofstream fout(root + "\\metadata.txt");
+	createIndexFile(trainPath);
+	ifstream fin("source\\index.txt");
+	ofstream fout("source\\metadata.txt");
 	int numTopics, numFiles;
 	fin >> numTopics;
 	fin.ignore();
-	fout << numTopics << endl;
+	fout << numTopics + 1 << endl;
 	string curTopic, curFile;
 	while (numTopics--) {
 		high_resolution_clock::time_point tt1 = high_resolution_clock::now();
 		getline(fin, curTopic);
-		cout << "Reading " << curTopic << endl;
+		cout << "Reading " << curTopic << "...."<< endl;
 		fout << curTopic << endl;
 		fin >> numFiles;
 		fout << numFiles << endl;
 		fin.ignore();
 		while (numFiles--) {
-			high_resolution_clock::time_point t1 = high_resolution_clock::now();
 			getline(fin, curFile);
-			cout << curFile << endl;
 			fout << curFile << endl;
 			string keyWords;
 			extractKeyWord(trainPath + "\\" + curTopic + "\\" + curFile, keyWords);
 			fout << keyWords;
-			high_resolution_clock::time_point t2 = high_resolution_clock::now();
-			duration<double, std::milli> time_span = t2 - t1;
-			cout << "Process File took " << time_span.count() << " milliseconds.";
-			cout << endl << endl;
 			//return; // run 1 file
 		}
 		high_resolution_clock::time_point tt2 = high_resolution_clock::now();
 		duration<double, std::milli> time_span = tt2 - tt1;
-		cout << "Process Topic took " << time_span.count() << " milliseconds.";
+		cout << "Process a Topic took " << time_span.count() << " milliseconds.";
 		cout << endl << endl;
 		//return; // run 1 topic
 	}
+	fout << "Other\n" << "0\n";
 	fin.close();
 	fout.close();
 }

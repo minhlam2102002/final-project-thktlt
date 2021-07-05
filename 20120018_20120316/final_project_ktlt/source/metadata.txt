@@ -1,216 +1,93 @@
-1
-Am nhac
-4
-AN_TN_ (878).txt
-37
-10 250
-20 250
-2006 250
-4 500
-am 250
-chuong 250
-dien 250
-gia 250
-giang 250
-giot 250
-ha 250
-hcm 250
-hen 250
-hien 250
-hoang 500
-huong 250
-khuc 250
-lac 250
-le 250
-liveshow 250
-luu 250
-mau 250
-mien 250
-ngoc 250
-nguyen 250
-nhac 250
-phuong 250
-sac 250
-suong 250
-tien 250
-tp 250
-trinh 250
-uoc 500
-vuong 250
-vy 250
-wishband 250
-yeu 250
-39
-10 4 256
-20 10 256
-2006 lac 256
-4 2006 256
-4 dien 256
-am nhac 256
-chuong trinh 256
-dien 20 256
-gia chuong 256
-giang vuong 256
-giot suong 256
-ha phuong 256
-hcm gia 256
-hen uoc 256
-hien khuc 256
-hoang le 256
-huong giang 256
-khuc uoc 256
-lac nguyen 256
-le vy 256
-liveshow sac 256
-luu huong 256
-mau am 256
-mien giot 256
-ngoc ha 256
-nguyen tp 256
-nhac 4 256
-phuong luu 256
-sac mau 256
-suong tien 256
-tien hen 256
-tp hcm 256
-trinh ngoc 256
-uoc hoang 256
-uoc yeu 256
-vuong hoang 256
-vy wishband 256
-wishband hien 256
-yeu mien 256
-38
-10 4 2006 263
-20 10 4 263
-2006 lac nguyen 263
-4 2006 lac 263
-4 dien 20 263
-am nhac 4 263
-chuong trinh ngoc 263
-dien 20 10 263
-gia chuong trinh 263
-giang vuong hoang 263
-giot suong tien 263
-ha phuong luu 263
-hcm gia chuong 263
-hen uoc hoang 263
-hien khuc uoc 263
-hoang le vy 263
-huong giang vuong 263
-khuc uoc yeu 263
-lac nguyen tp 263
-le vy wishband 263
-liveshow sac mau 263
-luu huong giang 263
-mau am nhac 263
-mien giot suong 263
-ngoc ha phuong 263
-nguyen tp hcm 263
-nhac 4 dien 263
-phuong luu huong 263
-sac mau am 263
-suong tien hen 263
-tien hen uoc 263
-tp hcm gia 263
-trinh ngoc ha 263
-uoc yeu mien 263
-vuong hoang le 263
-vy wishband hien 263
-wishband hien khuc 263
-yeu mien giot 263
-AN_TN_ (879).txt
-24
-album 155
-am 155
-blackmore 284
-candice 155
-child 129
-deep 155
-dia 129
-dinh 103
-doan 103
-guitar 129
-hat 310
-in 155
-khuc 103
-nhac 284
-night 259
-of 155
-purple 155
-rainbow 129
-richie 129
-rock 103
-s 259
-street 103
-tieng 155
-time 129
-6
-blackmore s 233
-child in 129
-deep purple 155
-in time 129
-s night 233
-street of 103
 2
-blackmore s night 234
-child in time 130
+Am nhac
+3
+AN_TN_ (879).txt
+23
+album 163
+am 163
+blackmore's 245
+candice 163
+child 136
+deep 163
+dia 136
+dinh 108
+doan 108
+guitar 136
+hat 326
+in 163
+khuc 108
+nhac 299
+night 272
+of 163
+purple 163
+rainbow 136
+richie 136
+rock 108
+street 108
+tieng 163
+time 136
+5
+blackmore's night 245
+child in 136
+deep purple 163
+in time 136
+street of 109
+1
+child in time 136
 AN_TN_ (880).txt
-26
-2 212
-4 141
-bao 212
-cam 283
-chuong 283
-cong 425
-gia 283
-gon 141
-hien 141
-hinh 283
-khan 141
-khuc 141
-luu 283
-my 496
-nhac 354
-niem 212
-sai 141
-sbtn 141
-show 283
-son 283
-tien 141
-trinh 496
-tro 141
-truyen 283
-tuong 283
-viet 212
+24
+2 217
+4 144
+bao 144
+cam 289
+chuong 289
+cong 434
+gia 289
+gon 144
+hien 144
+hinh 289
+khan 144
+khuc 144
+luu 289
+nhac 362
+niem 217
+sai 144
+sbtn 144
+show 289
+son 289
+tien 144
+tro 144
+truyen 289
+tuong 289
+viet 217
 17
-2 show 214
-chuong trinh 285
-cong son 214
-dien 2 142
-dien my 142
-hien khuc 142
-hinh cam 142
-khan gia 142
-luu dien 285
-my tuong 142
-nhac trinh 214
-niem nhac 142
-sai gon 142
-show dien 142
-trinh cong 357
-truyen hinh 285
-tuong niem 142
+2 show 218
+chuong trinh 291
+cong son 218
+dien 2 145
+dien my 145
+hien khuc 145
+hinh cam 145
+khan gia 145
+luu dien 291
+my tuong 145
+nhac trinh 218
+niem nhac 145
+sai gon 145
+show dien 145
+trinh cong 364
+truyen hinh 291
+tuong niem 145
 9
-chuong trinh cong 143
-dien 2 show 143
-dien my tuong 143
-luu dien my 143
-nhac trinh cong 215
-niem nhac trinh 143
-trinh cong son 215
-truyen hinh cam 143
-tuong niem nhac 143
+chuong trinh cong 147
+dien 2 show 147
+dien my tuong 147
+luu dien my 147
+nhac trinh cong 220
+niem nhac trinh 147
+trinh cong son 220
+truyen hinh cam 147
+tuong niem nhac 147
 AN_TN_ (881).txt
 58
 19h30 111
@@ -447,3 +324,244 @@ vu linh linh 113
 vu ung hoang 113
 yen bao yen 113
 yen phuong dinh 113
+Other
+1
+AT_NLD_ (259).txt
+54
+1 300
+10 100
+2 200
+200g 100
+3 300
+4 300
+bep 200
+bien 100
+bot 200
+cat 400
+chao 200
+che 100
+chien 200
+chut 100
+dam 100
+doan 100
+doc 100
+duong 400
+gioi 100
+giot 100
+giup 100
+got 200
+hai 100
+han 100
+hang 100
+hop 100
+huong 100
+lieu 200
+lop 100
+luoc 100
+me 200
+mieng 100
+mon 400
+mong 100
+muoi 200
+muong 200
+ngang 100
+nguyen 200
+ot 100
+phoi 100
+rac 100
+rach 200
+sach 100
+sen 100
+ta 100
+than 100
+thuy 100
+tieu 200
+trung 100
+truong 200
+tuong 100
+uop 100
+vot 100
+xao 100
+88
+1 4 202
+1 na 101
+10 200g 101
+2 duong 101
+2 sach 101
+200g muoi 101
+3 na 101
+3 rach 101
+3 xien 101
+4 chien 101
+4 muong 202
+bep truong 202
+bien mon 101
+bot che 101
+bot lop 101
+cat cat 101
+cat doan 101
+cat ngang 101
+cat rach 101
+chao mon 101
+chao xao 101
+che bien 101
+chien vot 101
+chut bot 101
+dam sen 101
+doan 2 101
+doc mon 101
+duong 1 101
+duong me 101
+duong mieng 101
+duong xien 101
+gioi doc 101
+giot bot 101
+giup huong 101
+got cat 101
+got trung 101
+hai duong 101
+han xien 101
+hang thuy 101
+hop na 101
+huong mon 101
+lieu 3 101
+lieu 4 101
+lop mong 101
+luoc chao 101
+me giot 101
+me xien 101
+mieng 3 101
+mon na 303
+mon nguyen 101
+mong nguyen 101
+muoi 1 101
+muoi tieu 101
+muong duong 101
+muong tieu 101
+na 10 101
+na giup 101
+na got 101
+na luoc 101
+na tuong 101
+na xien 404
+ngang than 101
+nguyen lieu 202
+ot got 101
+phoi hop 101
+rac chut 101
+rach 2 101
+rach hai 101
+sach cat 101
+sen gioi 101
+ta dam 101
+than 3 101
+thuy ta 101
+tieu duong 101
+tieu me 101
+trung cat 101
+truong hang 101
+truong phoi 101
+tuong ot 101
+uop muoi 101
+vot chao 101
+xao han 101
+xien 1 101
+xien bep 202
+xien chien 101
+xien na 202
+xien rac 101
+xien uop 101
+93
+1 4 muong 204
+1 na got 102
+10 200g muoi 102
+2 duong xien 102
+2 sach cat 102
+200g muoi 1 102
+3 na 10 102
+3 rach hai 102
+3 xien uop 102
+4 chien vot 102
+4 muong duong 102
+4 muong tieu 102
+bep truong hang 102
+bep truong phoi 102
+bien mon na 102
+bot che bien 102
+bot lop mong 102
+cat cat rach 102
+cat doan 2 102
+cat ngang than 102
+cat rach 2 102
+chao mon na 102
+chao xao han 102
+che bien mon 102
+chien vot chao 102
+chut bot lop 102
+dam sen gioi 102
+doan 2 sach 102
+doc mon na 102
+duong 1 4 102
+duong me xien 102
+duong mieng 3 102
+duong xien chien 102
+gioi doc mon 102
+giot bot che 102
+giup huong mon 102
+got cat cat 102
+got trung cat 102
+hai duong mieng 102
+han xien na 102
+hang thuy ta 102
+hop na giup 102
+huong mon nguyen 102
+lieu 3 na 102
+lieu 4 chien 102
+lop mong nguyen 102
+luoc chao mon 102
+me giot bot 102
+me xien rac 102
+mieng 3 xien 102
+mon na xien 306
+mon nguyen lieu 102
+mong nguyen lieu 102
+muoi 1 4 102
+muoi tieu duong 102
+muong duong 1 102
+muong tieu me 102
+na 10 200g 102
+na giup huong 102
+na got trung 102
+na luoc chao 102
+na tuong ot 102
+na xien 1 102
+na xien bep 204
+na xien na 102
+ngang than 3 102
+nguyen lieu 3 102
+nguyen lieu 4 102
+ot got cat 102
+phoi hop na 102
+rac chut bot 102
+rach 2 duong 102
+rach hai duong 102
+sach cat ngang 102
+sen gioi doc 102
+ta dam sen 102
+than 3 rach 102
+thuy ta dam 102
+tieu duong me 102
+tieu me giot 102
+trung cat doan 102
+truong hang thuy 102
+truong phoi hop 102
+tuong ot got 102
+uop muoi tieu 102
+vot chao xao 102
+xao han xien 102
+xien 1 na 102
+xien bep truong 204
+xien na luoc 102
+xien na tuong 102
+xien rac chut 102
+xien uop muoi 102

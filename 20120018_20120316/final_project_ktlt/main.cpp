@@ -29,22 +29,31 @@ namespace fs = std::filesystem;
 
 int main(){
 	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-	string root = "D:\\college\\KTLT\\final_project_ktlt\\20120018_20120316\\final_project_ktlt\\source";
-	string trainPath = root + "\\Train\\new train";
+	string trainPath = "source\\Train\\new train";
 	Data metadata;
 	high_resolution_clock::time_point Begin = high_resolution_clock::now();
-	createMetadata(root, trainPath);
-	metadata.Read(root + "\\metadata.txt");
-	//metadata.Print(root + "\\metadata.txt");
+	createMetadata(trainPath);
+	metadata.Read("source\\metadata.txt");
+	if (metadata.addFile("AN_TN_ (878).txt") == false) {
+		cout << "existed" << endl;
+	}
+	if (metadata.addFile("AT_NLD_ (259).txt") == false) {
+		cout << "existed" << endl;
+	}
+	else {
+		cout << "added" << endl;
+	}
+	if (metadata.deleteFile("AN_TN_ (878).txt") == true) {
+		cout << "deleted\n";
+	}
+	else {
+		cout << "not existed\n";
+	}
+	metadata.Print("source\\metadata.txt");
 	string input = "am nhac";
 	vector<pair<string, int>> res;
 	Search(metadata, input, res);
 	high_resolution_clock::time_point End = high_resolution_clock::now();
 	duration<double, std::milli> time_span = End - Begin;
 	cout << "All Process took " << time_span.count() << " milliseconds.";
-	//addFile("AN_TN_ (878).txt");
-	//deleteFile("AN_TN_ (878).txt");
-	return 0;
-	return 0;
-	cout << endl << endl;
 }

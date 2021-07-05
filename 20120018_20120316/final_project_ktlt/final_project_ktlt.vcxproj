@@ -157,7 +157,7 @@
     <Text Include="deleteFile.txt" />
     <Text Include="source\index.txt" />
     <Text Include="source\metadata.txt" />
-    <Text Include="vietnamese-stopwords.txt" />
+    <Text Include="source\vietnamese-stopwords.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

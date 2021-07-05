@@ -39,7 +39,7 @@ void fixWord(string& str) {
 		if (!((str[i] >= 'a' && str[i] <= 'z') ||
 			(str[i] >= 'A' && str[i] <= 'Z') ||
 			(str[i] >= '0' && str[i] <= '9') ||
-			str[i] == '\n')) {
+			str[i] == '\n' || str[i] == '\'')) {
 			str[i] = ' ';
 		}
 	}
@@ -58,12 +58,11 @@ void deleteStopWord(string& content) {
 	content = "";
 	for (int i = 0; i < momWords.size(); i++) {
 		int fr = lower_bound(stopWords.begin(), stopWords.end(), momWords[i]) - stopWords.begin();
-		int to = upper_bound(stopWords.begin(), stopWords.end(), momWords[i]) - stopWords.begin();
-		bool isDif = false;
+		bool isStopWord = false;
 		for (int j = fr; j < stopWords.size(); j++) {
-			isDif = false;
+			bool isDif = false;
 			extractWord(stopWords[j], childWords);
-			if (stopWords[j] != childWords[0]) {
+			if (momWords[i] != childWords[0]) {
 				break;
 			}
 			if (i + childWords.size() > momWords.size()) {
@@ -76,11 +75,12 @@ void deleteStopWord(string& content) {
 				}
 			}
 			if (isDif == false) {
+				isStopWord = true;
 				i += childWords.size() - 1;
 				break;
 			}
 		}
-		if (isDif == true || fr == to) {
+		if (isStopWord == false) {
 			content += momWords[i] + ' ';
 		}
 	}
@@ -88,7 +88,7 @@ void deleteStopWord(string& content) {
 string XoaDau(std::wstring& w_txt) { // XoaDau + LowerCase
 	for (auto& c : w_txt) {
 		for (int i = 0; i < 14; i++) {
-			for (auto v : vowels[i]) {
+			for (auto &v : vowels[i]) {
 				if (c == v) {
 					c = idVowels[i];
 				}
@@ -99,13 +99,13 @@ string XoaDau(std::wstring& w_txt) { // XoaDau + LowerCase
 	return txt;
 }
 void createStopWord() {
-	wstring w_content = ReadFileUTF8("vietnamese-stopwords.txt");
+	wstring w_content = ReadFileUTF8("source\\vietnamese-stopwords.txt");
 	string content = XoaDau(w_content);
 	char* tmp;
 	tmp = new char[content.size() + 1];
 	strcpy(tmp, content.c_str());
 	char* token = strtok(tmp, "\n");
-	string word(token);
+	string word = token;
 	stopWords.push_back(word);
 	while (token != NULL)
 	{
@@ -125,10 +125,10 @@ void countAppearance(vector<string>& words, vector<string>& grams, vector<int>& 
 		token.pop_back();
 		grams.push_back(token);
 	}
-	vector<string> gramToken;
 	sort(grams.begin(), grams.end());
 	grams.resize(unique(grams.begin(), grams.end()) - grams.begin());
 	rate.assign(grams.size(), 0);
+	vector<string> gramToken;
 	for (int i = 0; i < words.size(); i++) {
 		int fr = lower_bound(grams.begin(), grams.end(), words[i]) - grams.begin();
 		for (int j = fr; j < grams.size(); j++) {
