@@ -9,7 +9,7 @@ Yêu cầu:
   + Stopword:https://github.com/stopwords/vietnamese-stopwords/blob/master/vietnamese-stopwords.txt
 - Tìm kiếm văn bản
 - Xếp hạng kết quả tìm kiếm theo mức độ liên quan
-
+- Dataset: https://drive.google.com/drive/folders/1yJ_cM5g69S7GpfxX6ULTgjEn52fqiKFF
 Gợi ý làm bài:
 - Danh sách văn bản:
   + Tập tin index.txt chứa danh sách các tập tin văn bản có trong thư mục
